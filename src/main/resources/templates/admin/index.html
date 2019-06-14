@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
-  <title> XYZ AirLines</title>
+  <title>AirLines | Book</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
   <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="../css/dict.css" type="text/css" media="all">
+  <link rel="stylesheet" type="text/css" th:href="@{/static/dict.css}"/>
+
   <script type="text/javascript" src="../js/jquery-1.5.2.js" ></script>
   <script type="text/javascript" src="../js/cufon-yui.js"></script>
   <script type="text/javascript" src="../js/cufon-replace.js"></script>
@@ -16,17 +20,17 @@
   <script type="text/javascript" src="../js/atooltip.jquery.js"></script>
   <script type="text/javascript" src="../js/script.js"></script>
   <!--[if lt IE 9]>
-  <script type="text/javascript" src="book.html.js/html5.js"></script>
+  <script type="text/javascript" src="js/html5.js"></script>
   <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
   <![endif]-->
 </head>
-<body id="page1">
+
+<body id="page3">
+<div class="main">
   <!--header -->
-
-
   <header>
     <div class="wrapper">
-      <h1><a href="/" id="logo"> XYZ AirLines</a></h1>
+      <h1><a href="/" id="logo">AirLines</a></h1>
       <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
       <nav id="top_nav">
         <ul>
@@ -37,28 +41,46 @@
       </nav>
     </div>
 
+    <!--        A menu for our home page-->
 
+
+    <!--        <p>Please select an option</p>-->
+    <!--        <ol>-->
+    <!--            <li><a href="product/list.html" th:href="@{/product/list}">Product List</a></li>-->
+    <!--            <li><a href="order/list.html" th:href="@{/order/list}">Order List</a></li>-->
+    <!--            <li><a href="subscribe.html" th:href="@{/subscribe}">Subscribe to our Newsletter</a></li>-->
+    <!--            <li><a href="userprofile.html" th:href="@{/userprofile}">See User Profile</a></li>-->
+    <!--        </ol>-->
     <nav>
       <ul id="menu">
         <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
         <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
         <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
-                        <li><a href="/safety"><span><span>Safety</span></span></a></li>
+        <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
         <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
-        <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Plane </span></span></a></li>
-        <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Crew </span></span></a></li>
       </ul>
     </nav>
-
-
   </header>
 
+  <article >
+
+<div>
+
+   this is home page : more content will be is added soon!!!
+</div>
+
+
+
+  </article>
+
+  <!--footer -->
   <footer>
     <div class="links">
       Design by <a target="_blank" href="http://www.mum.edu/"> Student from  CS425 course project </a>
     </div>
   </footer>
   <!--footer end-->
-
+  <script type="text/javascript">Cufon.now();</script>
 </body>
 </html>
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AirLines | Book</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/dict.css}"/>
+    <script type="text/javascript" src="../js/jquery-1.5.2.js" ></script>
+    <script type="text/javascript" src="../js/cufon-yui.js"></script>
+    <script type="text/javascript" src="../js/cufon-replace.js"></script>
+    <script type="text/javascript" src="../js/Cabin_400.font.js"></script>
+    <script type="text/javascript" src="../js/tabs.js"></script>
+    <script type="text/javascript" src="../js/jquery.jqtransform.js" ></script>
+    <script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" src="../js/atooltip.jquery.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+    <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
+    <![endif]-->
+
+</head>
+
+<body id="page3">
+<br> <br>
+<div class="main">
+    <!--header -->
+    <header>
+        <div class="wrapper">
+            <h1><a href="/" id="logo">AirLines</a></h1>
+            <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
+            <nav id="top_nav">
+                <ul>
+                    <li><a href="/" class="nav1">Home</a></li>
+                    <li><a href="#" class="nav2">Sitemap</a></li>
+                    <li><a href="/contact" class="nav3">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
+                <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
+                <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
+                <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
+                <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="container">
+
+            /admin/schueduleList")
+            <form action="#" th:action="@{/admin/schueduleList}" th:object="${schuedule}" method="Get">
+                <fieldset>
+                    <legend>New  Form</legend>
+                    <div class="container" style="margin-top: 1em;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                </div>
+                                <div >
+                                    <labe>  <strong> From</strong>:</labe>
+
+
+                                    <select th:field="*{departureAirport}" required>
+
+                                        <option value="">Select  departure airport</option>
+                                        <option th:each="airport:${airports}" th:value="${airport.airportCode}" th:text="${airport.airportName}"></option>
+                                    </select>
+                                </div>
+                                <div >
+                                    <label for="departureDate"> <strong> departure Date</strong> </label>
+                                    <input id="departureDate" name="departureDate" type="date"  th:value="${schuedule.departureDate}"
+                                              required="required">
+                                </div>
+
+
+
+
+                                <div >
+                                    <labe> To:</labe>
+                                    <select th:field="*{arriavaleAirport}" required>
+                                        <option value="">Select  distination  airport</option>
+                                        <option th:each="airport:${airports}" th:value="${airport.airportCode}" th:text="${airport.airportName}"></option>
+                                    </select>
+                                </div>
+
+                                <div >
+                                    <label for="arrivaleaDate">Arrivalea Date </label>
+                                    <input id="arrivaleaDate" name="arrivaleaDate" type="date"
+                                           th:value="${schuedule.arrivaleaDate}"
+                                            required="required">
+                                </div>
+
+<!--                                <div >-->
+<!--                                    <label for="departureTime">departureDate </label>-->
+<!--                                    <input id="dTime" name="departureDate" type="time" class="form-control"-->
+<!--                                           aria-describedby="dateSuppliedHelp" th:value="${schuedule.departureTime}" required="required">-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label for="Price">Price </label>
+                                    <input id="Price" name="Price" type="text" class="form-control" th:value="${schuedule.price}" required="required">
+                                </div>
+                            </div>
+
+                            <div style="float:right;">
+                                <button id="btnReset" type="reset" class="btn btn-outline-info" style="margin-right: 2em;">Reset</button>
+                                <a href="/admin/schueduleList" class="btn btn-outline-warning" style="margin-right: 2em;">Cancel</a>
+                                <button id="btnSubmit" type="submit" class="btn btn-outline-primary">Add schuedule</button>
+                            </div>
+                        </div>
+                </fieldset>
+</form>
+</div>
+</div>
+
+<!--footer -->
+<br>
+<br>
+<footer>
+    <div class="links">
+        Design by <a target="_blank" href="http://www.mum.edu/"> Student from  CS425 course project </a>
+    </div>
+</footer>
+<!--footer end-->
+<script type="text/javascript">Cufon.now();</script>
+</body>
+</html>
