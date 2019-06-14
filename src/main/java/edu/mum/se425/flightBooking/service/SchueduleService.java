@@ -1,17 +1,18 @@
 package edu.mum.se425.flightBooking.service;
-import edu.mum.cs5.airTicketbooking.model.Schuedule;
-import edu.mum.cs5.airTicketbooking.repository.SchueduleRepository;
+import edu.mum.se425.flightBooking.model.Schuedule;
+import edu.mum.se425.flightBooking.repository.SchueduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 public class SchueduleService {
     @Autowired
     private SchueduleRepository schueduleRepository;
 
-    public Schuedule  SaveSchuedule(Schuedule schuedule){
+    public Schuedule SaveSchuedule(Schuedule schuedule){
          return schueduleRepository.save(schuedule);
     }
     public Schuedule  searchById( Long id)

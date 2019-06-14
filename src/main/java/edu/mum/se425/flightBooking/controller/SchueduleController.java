@@ -1,9 +1,9 @@
 package edu.mum.se425.flightBooking.controller;
 
-import edu.mum.cs5.airTicketbooking.model.Airport;
-import edu.mum.cs5.airTicketbooking.model.Schuedule;
-import edu.mum.cs5.airTicketbooking.repository.AirportRepository;
-import edu.mum.cs5.airTicketbooking.service.SchueduleService;
+import edu.mum.se425.flightBooking.model.Airport;
+import edu.mum.se425.flightBooking.model.Schuedule;
+import edu.mum.se425.flightBooking.repository.AirportRepository;
+import edu.mum.se425.flightBooking.service.SchueduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
