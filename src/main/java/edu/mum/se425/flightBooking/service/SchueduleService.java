@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 @Service
 public class SchueduleService {
     @Autowired
@@ -25,7 +24,7 @@ public class SchueduleService {
     public  Schuedule  searchSchueduleById( Long id){
         return schueduleRepository.getOne(id);
     }
-    public void  deleteSchueduleById( Long id){
+    public void  deleteSchueduleById(Long id){
         schueduleRepository.deleteById(id);
     }
 }
