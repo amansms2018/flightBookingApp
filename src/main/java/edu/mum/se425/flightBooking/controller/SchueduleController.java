@@ -107,10 +107,13 @@ public class SchueduleController {
     
     //creating flight search method
     @GetMapping(value ="/search")
-    public String searchFlight(Schuedule s) {
-        List<Schuedule> sss=  schueduleService.availableFlights(s);
-
-        return  null;
+    public ModelAndView searchFlight(Schuedule s) {
+        List<Schuedule> flights=  schueduleService.availableFlights(s);
+        
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("flight", flights);
+        mv.setViewName("availableFlightList");
+        return  mv;
     }
 //
 //
