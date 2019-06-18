@@ -1,117 +1,21 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
 <head>
-    <title>AirLines | Book</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/dict.css" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" th:href="@{/static/dict.css}"/>
-
-    <script type="text/javascript" src="../js/jquery-1.5.2.js" ></script>
-    <script type="text/javascript" src="../js/cufon-yui.js"></script>
-    <script type="text/javascript" src="../js/cufon-replace.js"></script>
-    <script type="text/javascript" src="../js/Cabin_400.font.js"></script>
-    <script type="text/javascript" src="../js/tabs.js"></script>
-    <script type="text/javascript" src="../js/jquery.jqtransform.js" ></script>
-    <script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript" src="../js/atooltip.jquery.js"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5.js"></script>
-    <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
-    <![endif]-->
+    <title>  please add the title of the page</title>
 </head>
+<body>
 
-<body id="page3">
-<div class="main">
-    <!--header -->
-    <header>
-        <div class="wrapper">
-            <h1><a href="/" id="logo">AirLines</a></h1>
-            <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
-            <nav id="top_nav">
-                <ul>
-                    <li><a href="/" class="nav1">Home</a></li>
-                    <li><a href="#" class="nav2">Sitemap</a></li>
-                    <li><a href="/contact" class="nav3">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <!--        A menu for our home page-->
-
-
-        <!--        <p>Please select an option</p>-->
-        <!--        <ol>-->
-        <!--            <li><a href="product/list.html" th:href="@{/product/list}">Product List</a></li>-->
-        <!--            <li><a href="order/list.html" th:href="@{/order/list}">Order List</a></li>-->
-        <!--            <li><a href="subscribe.html" th:href="@{/subscribe}">Subscribe to our Newsletter</a></li>-->
-        <!--            <li><a href="userprofile.html" th:href="@{/userprofile}">See User Profile</a></li>-->
-        <!--        </ol>-->
-        <nav>
-            <ul id="menu">
-                <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
-                <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
-                <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
-                <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
-                <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- / header -->
-    <!--content -->
+<th:block layout:fragment="content">
     <section id="content">
-        <div class="wrapper pad1">
-            <!--            <article class="col1">-->
-            <!--                <div class="box1">-->
-            <!--                    <h2 class="top">Hot Offers of the Week</h2>-->
-            <!--                    <div class="pad"> <strong>Birmingham</strong><br>-->
-            <!--                        <ul class="pad_bot1 list1">-->
-            <!--                            <li><span class="right color1">from GBP 143.-</span><a href="book2.html">Zurich</a></li>-->
-            <!--                        </ul>-->
-            <!--                        <strong>London (LCY)</strong><br>-->
-            <!--                        <ul class="pad_bot1 list1">-->
-            <!--                            <li><span class="right color1">from GBP 176.-</span><a href="book2.html">Geneva</a></li>-->
-            <!--                            <li><span class="right color1">from GBP 109.-</span><a href="book2.html">Zurich</a></li>-->
-            <!--                        </ul>-->
-
-            <!--                        <strong>Manchester</strong><br>-->
-            <!--                        <ul class="pad_bot2 list1">-->
-            <!--                            <li><span class="right color1">from GBP 97.-</span><a href="book2.html">Basel</a></li>-->
-            <!--                            <li><span class="right color1">from GBP 103.-</span><a href="book2.html">Zurich</a></li>-->
-            <!--                        </ul>-->
-            <!--                        <strong>Edinburgh</strong><br>-->
-            <!--                        <ul class="pad_bot2 list1">-->
-            <!--                            <li><span class="right color1">from GBP 165.-</span><a href="book2.html">Zurich</a></li>-->
-            <!--                        </ul>-->
-            <!--                        <strong>Birmingham</strong><br>-->
-            <!--                        <ul class="pad_bot1 list1">-->
-            <!--                            <li><span class="right color1">from GBP 143.-</span><a href="book2.html">Zurich</a></li>-->
-            <!--                        </ul>-->
-
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </article>-->
-
-
-
-
-            <!--            <article class="col2">-->
-            <!--                <div class="tabs2">-->
-            <!--                    <div class="content">-->
-            <!--                        <div class="tab-content" id="Flight">-->
-
             <article >
-                <div >
-                    <div>
-
                         <h3>List of  Planned Flight Schuedules </h3>
                         <hr/>
-                        <a  href="/newSchuedule"><h5> new schuedule </h5></a>
-                        <form action="#" th:action="@{/s}" th:object="${schuedule}" method="post">
+                        <a href="/newSchuedule"><h5> new schuedule </h5></a>
+                        <form action="#" th:action="@{/s}" th:object="${schuedule}" method="GET">
                             <table border="3" width="90%" cellpadding="2">
                                 <tr>
                                     <th> Id</th><th>Departure Airport</th><th> Departure Date </th>
@@ -119,16 +23,12 @@
                                     <th>Arrivale Airport</th><th> Arrivale Date </th>
                                     <th>Arrivale Time</th>
                                     <th>Price(USD)</th>
-
-
                                     <th>Edit</th><th>Delete</th></tr>
-
                                 <tr th:each="schuedule:${schuedules}">
 
                                     <td th:text="${schuedule.getId()}"></td>
                                     <td th:text="${schuedule.getDepartureAirport()}"></td>
                                     <td th:text="${schuedule.getDepartureDate()}"></td>
-                                    <!--                    <td th:text="${schuedule.getDepartureTime()}"></td>-->
 
                                     <td th:text="${schuedule.getArriavaleAirport()}"></td>
                                     <td th:text="${schuedule.getArrivaleaDate()}"></td>
@@ -141,20 +41,11 @@
                                 </tr>
                             </table>
                             <br/>
-                            </form:form>
-                    </div>
-                </div>
-        </div>
+                            </form>
         </article>
     </section>
-
-    <!--footer -->
-    <footer>
-        <div class="links">
-            Design by <a target="_blank" href="http://www.mum.edu/"> Student from  CS425 course project </a>
-        </div>
-    </footer>
-    <!--footer end-->
-    <script type="text/javascript">Cufon.now();</script>
+</th:block>
+<br/>
+<th:block layout:fragment="footer"/>
 </body>
 </html>

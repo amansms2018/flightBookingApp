@@ -1,64 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout}">
 <head>
-    <title>AirLines | Book</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/layout.css" type="text/css" media="all">
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" th:href="@{/static/dict.css}"/>
-    <script type="text/javascript" src="../js/jquery-1.5.2.js" ></script>
-    <script type="text/javascript" src="../js/cufon-yui.js"></script>
-    <script type="text/javascript" src="../js/cufon-replace.js"></script>
-    <script type="text/javascript" src="../js/Cabin_400.font.js"></script>
-    <script type="text/javascript" src="../js/tabs.js"></script>
-    <script type="text/javascript" src="../js/jquery.jqtransform.js" ></script>
-    <script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript" src="../js/atooltip.jquery.js"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5.js"></script>
-    <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
-    <![endif]-->
+    <title>  please add the title of the page</title>
 </head>
-
-<body id="page3">
-<div class="main">
-    <!--header -->
-    <header>
-        <div class="wrapper">
-            <h1><a href="/" id="logo">AirLines</a></h1>
-            <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
-            <nav id="top_nav">
-                <ul>
-                    <li><a href="/" class="nav1">Home</a></li>
-                    <li><a href="#" class="nav2">Sitemap</a></li>
-                    <li><a href="/contact" class="nav3">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        /airport/list
-        <nav>
-            <ul id="menu">
-                <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
-                <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
-                <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
-                <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
-                <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="content">
-        <div class="wrapper pad1">
-
-            <article class="col2">
-                <div class="tabs2">
+<body>
+<th:block layout:fragment="content">
                     <div class="content">
                         <div class="tab-content" id="Flight">
 
                             <form action="#" th:action="@{/save}" th:object="${airport}" method="post">
-
                                 <table>
                                     <tr>
                                         <td colspan="2">Airport Code :</td>
@@ -71,15 +25,12 @@
 
                                         <td><input type="text" th:field="*{airportName}" />
                                         </td>
-
                                     </tr>
-
                                     <tr>
                                         <td colspan="2"> Coutry: 	</td>
 
                                         <td><input type="text" th:field="*{country}" />
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td colspan="2"> City :	</td>
@@ -98,17 +49,9 @@
 
                         </div>
                     </div>
-                </div>
-            </article>
-        </div>
 
-        <!--footer -->
-        <footer>
-            <div class="links">
-                Design by <a target="_blank" href="http://www.mum.edu/"> Student from  CS425 course project </a>
-            </div>
-        </footer>
-        <!--footer end-->
-        <script type="text/javascript">Cufon.now();</script>
+</th:block>
+<br/>
+<th:block layout:fragment="footer"/>
 </body>
 </html>

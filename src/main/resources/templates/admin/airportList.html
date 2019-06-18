@@ -1,95 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{public/layouts/master-page-layout}">
 <head>
-    <title>AirLines | Services</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-    <script type="text/javascript" src="js/jquery-1.5.2.js" ></script>
-    <script type="text/javascript" src="js/cufon-yui.js"></script>
-    <script type="text/javascript" src="js/cufon-replace.js"></script>
-    <script type="text/javascript" src="js/Cabin_400.font.js"></script>
-    <script type="text/javascript" src="js/tabs.js"></script>
-    <script type="text/javascript" src="js/jquery.jqtransform.js" ></script>
-    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript" src="js/atooltip.jquery.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5.js"></script>
-    <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
-    <![endif]-->
+    <title>  please add the title of the page</title>
+
 </head>
-<body id="page4">
+
+
+
+<body id="page1">
 <div class="main">
-    <!--header -->
-    <header>
-        <div class="wrapper">
-            <h1><a href="/" id="logo">AirLines</a></h1>
-            <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
-            <nav id="top_nav">
-                <ul>
-                    <li><a href="/" class="nav1">Home</a></li>
-                    <li><a href="#" class="nav2">Sitemap</a></li>
-                    <li><a href="/" class="nav3">Contact</a></li>
-                </ul>
-            </nav>
+
+<th:block layout:fragment="content">
+
+    <div class="container">
+        <h3>List of  active airports </h3>
+        <hr/>
+        <a  href="/newairport"><h5> Add  new Airport </h5></a>
+        <div style="font-size: 1em">
+
+            <form action="/airport/list" th:object="${airports}" method="GET">
+
+                <table id="t01" border="1" width="70%" cellpadding="2">
+                    <tr><th> Id</th><th>Code</th><th>Name </th>
+                        <th>Country</th><th>City </th>
+                        <th>Edit</th><th>Delete</th></tr>
+
+                    <tr th:each="airport:${airports}">
+                        <td th:text="${airport.getId()}"></td>
+                        <td th:text="${airport.getAirportCode()}"></td>
+                        <td th:text="${airport.getAirportName()}"></td>
+                        <td th:text="${airport.getCountry()}"></td>
+                        <td th:text="${airport.getCity()}"></td>
+
+                        <td><a th:href="@{'/editairport/' + ${airport.getId()}}">Edit</a></td>
+
+                        <td><a th:href="@{'/deleteairport/' + ${airport.getId()}}">Delete</a></td>
+                    </tr>
+                </table>
+                <br/>
+            </form>
+
         </div>
-        <nav>
-            <ul id="menu">
-                <li><a href="/admin/listSchuedule" th:href="@{/admin/offers}"><span><span>Offers</span></span></a></li>
-                <li ><a href="/admin/airportList"th:href="@{/admin/airportList}"><span><span>Airport</span></span></a></li>
-                <li id="menu_active"><a href="/admin/schueduleList"  th:href="@{/admin/schueduleList}"><span><span>Schuedule</span></span></a></li>
-                <!--                <li><a href="/safety"><span><span>Safety</span></span></a></li>-->
-                <li class="end"><a href="/admin/report" th:href="@{/admin/report}"><span><span>Report</span></span></a></li>
-            </ul>
-        </nav>
-    </header>
-
-<p>&nbsp;</p>
-<div class="container">
-    <h3>List of  active airports </h3>
-    <hr/>
-    <a  href="/newairport"><h5> Add Airport </h5></a>
-    <div style="font-size: 1em">
-
-        <form action="#" th:action="@{/saveSchuedule}" th:object="${airports}" method="post">
-
-
-            <table id="t01" border="1" width="70%" cellpadding="2">
-                <tr><th> Id</th><th>Code</th><th>Name </th>
-                    <th>Country</th><th>City </th>
-                    <th>Edit</th><th>Delete</th></tr>
-
-                <tr th:each="airport:${airports}">
-                    <td th:text="${airport.getId()}"></td>
-                    <td th:text="${airport.getAirportCode()}"></td>
-                    <td th:text="${airport.getAirportName()}"></td>
-                    <td th:text="${airport.getCountry()}"></td>
-                    <td th:text="${airport.getCity()}"></td>
-
-                    <td><a th:href="@{'/editairport/' + ${airport.getId()}}">Edit</a></td>
-
-                    <td><a th:href="@{'/deleteairport/' + ${airport.getId()}}">Delete</a></td>
-                </tr>
-            </table>
-            <br/>
-        </form:>
-
     </div>
+
+</th:block>
+
+<br/>
+
+
+<th:block layout:fragment="footer"/>
+
 </div>
 
-<!--     <footer class="footer">
-        <div class="container">
-            <span class="text-muted">O. Kalu : : : CS425-SWE</span><span style="float:right;" class="text-muted">&copy; November 2018</span>
-        </div>
-    </footer> -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>

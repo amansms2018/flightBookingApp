@@ -7,10 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -22,13 +19,13 @@ import java.util.List;
 public class AirportController {
     @Autowired
     AirportService airportService;
-    @GetMapping(value="/newairport")
+    @GetMapping(value="/newAirport")
     public String recordAirport(ModelMap model) {
         Airport airport = new Airport();
         model.addAttribute("airport",airport);
         return "admin/addairport";
     }
-    @RequestMapping(value="/save",method=RequestMethod.POST)
+    @PostMapping(value="/saveAirport")
     public String saveRegistration(@Valid Airport airport, BindingResult result, ModelMap model, RedirectAttributes redirectAttributes) {
         airportService.save(airport);
         return "redirect:/airport/list";
@@ -36,8 +33,9 @@ public class AirportController {
     @GetMapping(value = "/airport/list")
     public ModelAndView getAll() {
         List<Airport> airports = airportService.searchAll();
-        return new ModelAndView("admin/airportlist", "airports", airports);
+        return new ModelAndView("admin/airportList", "airports", airports);
     }
+
 
 //    @RequestMapping(value = "/editsave", method = RequestMethod.POST)
 //    public String editsave(@ModelAttribute("airport") Airport ap) {

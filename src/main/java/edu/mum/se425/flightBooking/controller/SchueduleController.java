@@ -75,12 +75,13 @@ public class SchueduleController {
         return new ModelAndView("admin/schueduleList", "schuedules", schuedules);
     }
 //
-//    @RequestMapping(value="/editschuedule/{id}")
-//    public String edit (@PathVariable Long id,ModelMap model) {
-//        Schuedule schuedule=schueduleService.searchById(id);
-//        model.addAttribute("schuedule",schuedule);
-//        return "admin/editschuedule";
-//    }
+
+    @GetMapping(value="/editschuedule/{id}")
+    public String edit (@PathVariable Long id,Model model) {
+        Schuedule schuedule=schueduleService.searchById(id);
+        model.addAttribute("schuedule",schuedule);
+        return "admin/editSchuedule";
+    }
 
     @PostMapping(value = "/editsave")
     public String editsave(@ModelAttribute("schuedule") Schuedule p) {

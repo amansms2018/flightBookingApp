@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import edu.mum.se425.flightBooking.model.Schuedule;
 import edu.mum.se425.flightBooking.repository.SchueduleRepository;
 
-
 @Service
 public class SchueduleService {
     @Autowired
@@ -27,7 +26,7 @@ public class SchueduleService {
     public  Schuedule  searchSchueduleById( Long id){
         return schueduleRepository.getOne(id);
     }
-    public void  deleteSchueduleById( Long id){
+    public void  deleteSchueduleById(Long id){
         schueduleRepository.deleteById(id);
     }
     
