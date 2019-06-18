@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{public/layouts/master-page-layout-c}">
+<head>
+  <title>  please add the title of the page</title>
+</head>
+<body id="page1">
+<div class="main">
+  <th:block layout:fragment="content">
+            <form id="form_5" action="#" class="form_5" method="post">
+                <div class="pad">
+                  <div class="wrapper under">
+                    <div class="col1">
+                      <h2>Outbound flight information</h2>
+                      <div class="row">
+                        <span class="left">From</span>
+                        <img src="images/departure_start_.png"width="40" height="40">
+                        <input type="text" class="input">
+                      </div>
+                      <div class="row">
+                        <span class="left">To</span>
+                        <img src="images/arrival.png"width="40" height="40">
+                        <input type="text" class="input">
+                      </div>
+                      <div class="check_box">
+                        <input type="checkbox">  <span>One way</span>
+                        <input type="checkbox">   <span>Direct flights</span> </div>
+                    </div>
+
+                    <div>
+                      Departure Date :<input type="date" name="bday" min="2019-01-02"><br>
+                      Return date : <input type="date" name="bday" min="2019-01-02"><br>
+                    </div>
+                  </div>
+
+                  <div class="wrapper pad_bot1"> <span class="left">Passengers</span>
+                    <div class="cols marg_right1">
+                      <div class="row">
+                        <input type="text" class="input2" value="2"  onblur="if(this.value=='') this.value='2'" onFocus="if(this.value =='2' ) this.value=''">
+                        <span class="left">Adults</span> <a href="#" class="help"></a> </div>
+                      <div class="row">
+                        <input type="text" class="input2" value="0"  onblur="if(this.value=='') this.value='0'" onFocus="if(this.value =='0' ) this.value=''">
+                        <span class="left">Children</span> <a href="#" class="help"></a> </div>
+                    </div>
+                    <div class="cols">
+                      <div class="select1"><span class="left">Class</span>
+                        <select>
+                          <option>Frist class</option>
+                          <option>Bussiness</option>
+                          <option>Economy</option>
+                        </select>
+                        <a href="#" class="help"></a>
+                      </div>
+                    </div>
+                    <span class="right relative"><a href="#" class="button1"><strong>Search</strong></a></span> </div>
+                </div>
+            </form>
+  </th:block>
+  <br/>
+  <th:block layout:fragment="footer"/>
+  </div>
+  </div>
+</body>
+</html>
