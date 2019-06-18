@@ -103,6 +103,13 @@ public class SchueduleController {
         return "redirect:/admin/schueduleList";
     }
 
+    
+    //creating flight search method
+    @GetMapping(value ="/search")
+    public List<Schuedule> searchFlight(Schuedule s) {
+    	
+    	return schueduleService.availableFlights(s);
+    }
 //
 //
 
