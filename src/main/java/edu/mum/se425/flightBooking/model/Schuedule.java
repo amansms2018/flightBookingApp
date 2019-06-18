@@ -65,14 +65,6 @@ public class Schuedule {
         this.id = id;
     }
 
-    public Schuedule(LocalDate departureDate, @NotNull(message = "Arriavel date is required ") LocalDate arrivaleaDate, String departureAirport, @NotNull(message = "Arriavel date is required ") @NotBlank(message = "arrivate date should not be empty") String arriavaleAirport, @NotNull(message = "* Unit Price is required") @Digits(integer = 9, fraction = 2, message = "*  Price must be a numeric/monetary amount in decimal (money) format as 'xxx.xx'") float price) {
-        this.departureDate = departureDate;
-        this.arrivaleaDate = arrivaleaDate;
-        this.departureAirport = departureAirport;
-        this.arriavaleAirport = arriavaleAirport;
-        this.price = price;
-    }
-
     public void setArrivaleaDate(LocalDate arrivaleaDate) {
         this.arrivaleaDate = arrivaleaDate;
     }
