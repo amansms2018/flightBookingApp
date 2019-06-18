@@ -37,12 +37,15 @@ public class SchueduleService {
     	
     	List<Schuedule> availableFlights = new ArrayList<>();
     	for (Schuedule s : allFlights) {
-			if((s.getDepartureAirport().equals(m.getDepartureAirport())) && (s.getArriavaleAirport().equals(m.getArriavaleAirport()))) {
-				if((s.getDepartureDate().equals(m.getDepartureDate())) && (s.getArrivaleaDate().equals(m.getArrivaleaDate()))) {
-					
+			if((s.getDepartureAirport().equals(m.getDepartureAirport())) &&
+                    (s.getArriavaleAirport().equals(m.getArriavaleAirport()))) {
+				if((s.getDepartureDate().equals(m.getDepartureDate())) &&
+                        (s.getArrivaleaDate().equals(m.getArrivaleaDate()))) {
 					availableFlights.add(s);
 				}
 			}
+
+
 		}
     	
     	return availableFlights;

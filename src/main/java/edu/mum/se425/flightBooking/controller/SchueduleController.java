@@ -107,9 +107,10 @@ public class SchueduleController {
     
     //creating flight search method
     @GetMapping(value ="/search")
-    public List<Schuedule> searchFlight(Schuedule s) {
-    	
-    	return schueduleService.availableFlights(s);
+    public String searchFlight(Schuedule s) {
+        List<Schuedule> sss=  schueduleService.availableFlights(s);
+
+        return  null;
     }
 //
 //
