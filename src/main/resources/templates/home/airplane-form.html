@@ -1,17 +1,24 @@
-<!DOCTYPE html >
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html
+		lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{public/layouts/master-page-layout-c}">
 <head>
-	<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>  please add the title of the page</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Save Airplane</title>
 </head>
-<body>
 
-	<div class = "container"> 
+
+<body id="page1">
+<div class="main">
+
+
+	<!--onload="document.querySelector('#productNumber').focus();"-->
+	<th:block layout:fragment="content">
+		<!--        <form id="productForm" method="post" action="/srm/secured/product/new" th:object="${product}">-->
+
+		<div class = "container">
 	
 		<h3>Form For Adding New Airplane</h3>
 
@@ -46,6 +53,16 @@
 		<a th:href ="@{/airplanes/list}"> Back to list of airplanes</a>
 	
 	</div>
-	
+
+
+	</th:block>
+
+	<br/>
+
+
+	<th:block layout:fragment="footer"/>
+
+</div>
+
 </body>
 </html>

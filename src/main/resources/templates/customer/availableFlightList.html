@@ -12,10 +12,10 @@
 
 <body>
 	<div class = "container">
-		<h3>List Of Available Flights</h3>	
+		<h3>List Of Available Flights</h3>
 		<hr>
 			<!-- Adding a botton here that takes me to form to add airplane -->
-			<a th:href= "@{/airplanes/showForm}" class ="btn btn-primary btn-sm mb-3"> 
+			<a th:href= "@{/airplanes/showForm}" class ="btn btn-primary btn-sm mb-3">
 				Alternative Flights
 			</a>
 			<table class ="table table-bordered table-striped" >
@@ -32,7 +32,7 @@
 						<th> Action</th>
 					</tr>
 				</thead>
-				
+
 				<!-- to loop over the data using Thymeleaf -->
 				<tbody>
                 <tr th:each="schedule:${flights}">
@@ -41,25 +41,27 @@
 						<td th:text="${schedule.getPlaneNumber()}"/>
 						<td th:text="${schedule.departureAirport}"/>
 						<td th:text="${schedule.getDepartureDate()}"/>
-						<td th:text="${schedule.departureDate}"/>									
-						<td th:text="${schedule.arrivaleaDate}"/>									
-						<td th:text="${schedule.price}"/>									
-						
+						<td th:text="${schedule.departureDate}"/>
+						<td th:text="${schedule.arrivaleaDate}"/>
+						<td th:text="${schedule.price}"/>
+
 						<td>
+<!--					<td><a th:href="@{'/newBooking/' + ${schedule.getId()}}">Details</a>-->
+					<a th:href="@{'/newBooking/' + ${schedule.getId()}}">Select</a>
 							<!-- update button -->
-							<a th:href="@{/airplanes/update(id =  ${schedule.getId()})}"
-								class =" btn btn-success btn-sm">  	Details </a>
-							&nbsp;&nbsp;&nbsp;
-							<a th:href="@{/airplanes/delete(id =${schedule.getId()})}"
-								class =" btn btn-danger btn-sm"
-								onclick="if (! (confirm('You are selecting this particular flight?'))) return false">
-								<Strong> Select</Strong>
-							</a>
+<!--							<a th:href="@{/airplanes/update(id =  ${schedule.getId()})}"-->
+<!--								class =" btn btn-success btn-sm"> Details </a>-->
+<!--							&nbsp;&nbsp;&nbsp;-->
+<!--							<a th:href="@{/airplanes/delete(id =${schedule.getId()})}"-->
+<!--								class =" btn btn-danger btn-sm"-->
+<!--								onclick="if (! (confirm('You are selecting this particular flight?'))) return false">-->
+<!--								<Strong> Select</Strong>-->
+<!--							</a>-->
 						 </td>
 					</tr>
 				</tbody>
 			</table>
-			
+
 	</div>
 </body>
 </html>

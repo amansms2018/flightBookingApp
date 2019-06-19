@@ -1,87 +1,72 @@
 package edu.mum.se425.flightBooking.model;
 
 import javax.persistence.*;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Table;
 
 @Entity
-@Table(name="Airport")
 public class Airport {
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="airportId")
-	private int airportId;
-	
-	@Column(name="airportCode")
-	private int airportCode;
-	
-	@Column(name="airportName")
-	private String airportName;
-	
-	@Column(name="city")
-	private String city;
-	
-	@Column(name="country")
-	private String country;
-	
-	public Airport() {
-		
-	}
+    public long getId() {
+        return id;
+    }
+    public Airport(String airportCode, String airportName, String city, String country) {
+        this.airportCode = airportCode;
+        this.airportName = airportName;
+        this.city = city;
+        this.country = country;
+    }
 
-	public Airport( int airportId,int airportCode, String airportName, String city, String country) {
-		
-		this.airportId = airportId;
-		this.airportCode = airportCode;
-		this.airportName = airportName;
-		this.city = city;
-		this.country = country;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public int getAirportId() {
-		return airportId;
-	}
+    public Airport(String airportName, String city, String country) {
+        this.airportName = airportName;
+        this.city = city;
+        this.country = country;
+    }
+    public Airport() {
+    }
 
-	public void setAirportId(int airportId) {
-		this.airportId = airportId;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private  long id;
+    @Column(name = "airport_code",unique=true,columnDefinition="VARCHAR(10)")
+    private String airportCode;
 
-	public int getAirportCode() {
-		return airportCode;
-	}
+    public String getAirportCode() {
+        return airportCode;
+    }
 
-	public void setAirportCode(int airportCode) {
-		this.airportCode = airportCode;
-	}
+    public String getAirportName() {
+        return airportName;
+    }
 
-	public String getAirportName() {
-		return airportName;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public void setAirportName(String airportName) {
-		this.airportName = airportName;
-	}
+    public String getCountry() {
+        return country;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    private String airportName;
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public void setAirportCode(String airportCode) {
+        this.airportCode = airportCode;
+    }
 
-	public String getCountry() {
-		return country;
-	}
+    public void setAirportName(String airportName) {
+        this.airportName = airportName;
+    }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	@Override
-	public String toString() {
-		return "Airport [airportId=" + airportId + ", airportCode=" + airportCode + ", airportName=" + airportName
-				+ ", city=" + city + ", country=" + country + "]";
-	}
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    private String city;
+    private String country;
 
 }
