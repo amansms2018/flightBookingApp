@@ -32,6 +32,10 @@ public class SchueduleService {
     public List<Schuedule> availableFlights(Schuedule m){
         List<Schuedule> allFlights = searchAllSchuedule();
 
+        if (allFlights!=null)
+            System.out.println("--------\n\nThis is mukara Three-----" + allFlights.get(0).toString());
+
+
         List<Schuedule> availableFlights = new ArrayList<>();
         for (Schuedule s : allFlights) {
             if((s.getDepartureAirport().equals(m.getDepartureAirport())) &&
@@ -45,11 +49,9 @@ public class SchueduleService {
 
         if (availableFlights.size()>0) {
             for (Schuedule s: availableFlights) {
-               System.out.println("I am not Null");
+                System.out.println("I am not Null");
                 System.out.println("\n\n Mukara Two" +  s.getDepartureAirport());
             }
-//            System.out.println(availableFlights.get(0).toString());
-//            System.out.println(" hi");
         }
         return availableFlights;
     }
