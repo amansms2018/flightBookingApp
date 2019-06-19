@@ -112,47 +112,47 @@ public class SchueduleController {
         return "redirect:/admin/schueduleList";
     }
 
-    @GetMapping(value = "/searchForm")
-    public String flightForm(Model model) {
-        model.addAttribute("schuedule", new Schuedule());
-        List<Airport> airports = airportRepository.findAll();
-        model.addAttribute("airports", airports);
-        return "customer/searchFlight";
-    }
-
-//    //creating flight search method
-//    @GetMapping(value ="/search")
-//    public ModelAndView searchFlight(Schuedule s) {
+//    @GetMapping(value = "/searchForm")
+//    public String flightForm(Model model) {
+//        model.addAttribute("schuedule", new Schuedule());
+//        List<Airport> airports = airportRepository.findAll();
+//        model.addAttribute("airports", airports);
+//        return "customer/searchFlight";
+//    }
 //
-//        System.out.print( "This is mukara  Frist to check  filled  information to search possible flight\n\n" + s.toString());
-//        List<Schuedule> flights=  schueduleService.availableFlights(s);
+////    //creating flight search method
+////    @GetMapping(value ="/search")
+////    public ModelAndView searchFlight(Schuedule s) {
+////
+////        System.out.print( "This is mukara  Frist to check  filled  information to search possible flight\n\n" + s.toString());
+////        List<Schuedule> flights=  schueduleService.availableFlights(s);
+////        ModelAndView mv = new ModelAndView();
+////        mv.addObject("flights", flights);
+////        mv.setViewName("customer/availableFlightList");
+////        return  mv;
+////    }
+//
+//
+//    @PostMapping(value = "/search")
+//    public ModelAndView getAvalableFlightSchuedule(@Valid @ModelAttribute("schuedule") Schuedule schuedule) {
+////        if (bindingResult.hasErrors()) {
+////            model.addAttribute("errors", bindingResult.getAllErrors());
+////            List<Airport> airports = airportRepository.findAll();
+////            model.addAttribute("airports", airports);
+////            return "admin/addSchuedulingPage";
+////        }
+//
+//        System.out.print( "This is mukara  First to check  filled  information to search possible flight\n\n" +
+//                schuedule.toString());
+//
+//        List<Schuedule> flights=  schueduleService.availableFlights(schuedule);
+//
 //        ModelAndView mv = new ModelAndView();
 //        mv.addObject("flights", flights);
 //        mv.setViewName("customer/availableFlightList");
 //        return  mv;
+////        schueduleService.SaveSchuedule(schuedule);
+////        return "redirect:/admin/schueduleList";
 //    }
-
-
-    @PostMapping(value = "/search")
-    public ModelAndView getAvalableFlightSchuedule(@Valid @ModelAttribute("schuedule") Schuedule schuedule) {
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("errors", bindingResult.getAllErrors());
-//            List<Airport> airports = airportRepository.findAll();
-//            model.addAttribute("airports", airports);
-//            return "admin/addSchuedulingPage";
-//        }
-
-        System.out.print( "This is mukara  First to check  filled  information to search possible flight\n\n" +
-                schuedule.toString());
-
-        List<Schuedule> flights=  schueduleService.availableFlights(schuedule);
-
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("flights", flights);
-        mv.setViewName("customer/availableFlightList");
-        return  mv;
-//        schueduleService.SaveSchuedule(schuedule);
-//        return "redirect:/admin/schueduleList";
-    }
 
 }
