@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Save messages </title>
+</head>
+<body>
+
+	<div class = "container"> 
+	
+		<h5>Dear Customers, pleas Submit your messages here.</h5>
+
+		
+		<form action ="#" th:action ="@{/save}"
+						  th:object  ="${info}" method = "POST">
+			
+		<!-- add a hidden form field to handle the update. this is only for update or edit -->
+		
+			<input type="hidden" th:field= "*{id}">
+			<input type ="text" th:field ="*{firstName}" 
+				   class = "form-control mb-4 col-4"  placeholder =" First Name">
+				   
+			<input type ="text" th:field ="*{lastName}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Last Name">
+		
+			<input type ="text" th:field ="*{email}" 
+				   class = "form-control mb-4 col-4"  placeholder =" Email Address">
+				   
+			<textarea rows  = "10" cols ="80" th:field = "*{content}"  placeholder =" Message"> </textarea>
+				   
+			<button type = "submit" class ="btn btn-info col-2"> save</button>
+		
+		</form>
+		
+		<hr> 
+		<!-- a link to the list of airplanes -->
+			<a th:href ="@{/}"> Back to home </a>
+	</div>
+	
+	
+</body>
+</html>
