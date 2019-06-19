@@ -14,4 +14,6 @@ public interface ContactInfoService {
 	
 	public void sendMessage(ContactInfo message);
 	
+	//public void addMessage(ContactInfo info);
+	
 }
