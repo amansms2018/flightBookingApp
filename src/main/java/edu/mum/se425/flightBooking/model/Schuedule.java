@@ -27,6 +27,7 @@ public class Schuedule {
     public Integer getPlaneNumber() {
         return planeNumber;
     }
+
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private  long id;
@@ -122,5 +123,17 @@ public class Schuedule {
     @NumberFormat(pattern = "#,###.##")
     private  float  price;
 
-
+    @Override
+    public String toString() {
+        return "Schuedule{" +
+                "id=" + id +
+                ", planeId=" + planeId +
+                ", planeNumber=" + planeNumber +
+                ", departureDate=" + departureDate +
+                ", arrivaleaDate=" + arrivaleaDate +
+                ", departureAirport='" + departureAirport + '\'' +
+                ", arriavaleAirport='" + arriavaleAirport + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

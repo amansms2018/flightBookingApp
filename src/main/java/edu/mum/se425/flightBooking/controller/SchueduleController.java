@@ -1,8 +1,10 @@
 package edu.mum.se425.flightBooking.controller;
 
+import edu.mum.se425.flightBooking.model.Airplane;
 import edu.mum.se425.flightBooking.model.Airport;
 import edu.mum.se425.flightBooking.model.Schuedule;
 import edu.mum.se425.flightBooking.repository.AirportRepository;
+import edu.mum.se425.flightBooking.service.AirplaneService;
 import edu.mum.se425.flightBooking.service.SchueduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,15 +21,21 @@ public class SchueduleController {
 
     @Autowired
     AirportRepository airportRepository;
+
     @Autowired
     SchueduleService schueduleService;
+
+    @Autowired
+    AirplaneService airplaneService;
     ////
 
     @GetMapping(value = "/newSchuedule")
     public String newProductForm(Model model) {
-        List<Airport> airports = airportRepository.findAll();
         model.addAttribute("schuedule", new Schuedule());
+        List<Airport> airports = airportRepository.findAll();
         model.addAttribute("airports", airports);
+        List<Airplane> airplanes = airplaneService.findAllAirplane();
+        model.addAttribute("airplanes", airplanes);
         return "admin/newSchedule2";
     }
 
@@ -71,6 +79,7 @@ public class SchueduleController {
 //    }
     @GetMapping(value = "/admin/schueduleList")
     public ModelAndView getAll() {
+
         List<Schuedule> schuedules = schueduleService.searchAllSchuedule();
         return new ModelAndView("admin/schueduleList", "schuedules", schuedules);
     }
@@ -104,18 +113,47 @@ public class SchueduleController {
         return "redirect:/admin/schueduleList";
     }
 
-    
-    //creating flight search method
-    @GetMapping(value ="/search")
-    public ModelAndView searchFlight(Schuedule s) {
-        List<Schuedule> flights=  schueduleService.availableFlights(s);
-        
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("flight", flights);
-        mv.setViewName("availableFlightList");
-        return  mv;
+    @GetMapping(value = "/searchForm")
+    public String flightForm(Model model) {
+        model.addAttribute("schuedule", new Schuedule());
+        List<Airport> airports = airportRepository.findAll();
+        model.addAttribute("airports", airports);
+        return "customer/searchFlight";
     }
+
+//    //creating flight search method
+//    @GetMapping(value ="/search")
+//    public ModelAndView searchFlight(Schuedule s) {
 //
-//
+//        System.out.print( "This is mukara  Frist to check  filled  information to search possible flight\n\n" + s.toString());
+//        List<Schuedule> flights=  schueduleService.availableFlights(s);
+//        ModelAndView mv = new ModelAndView();
+//        mv.addObject("flights", flights);
+//        mv.setViewName("customer/availableFlightList");
+//        return  mv;
+//    }
+
+
+    @PostMapping(value = "/search")
+    public ModelAndView getAvalableFlightSchuedule(@Valid @ModelAttribute("schuedule") Schuedule schuedule) {
+//        if (bindingResult.hasErrors()) {
+//            model.addAttribute("errors", bindingResult.getAllErrors());
+//            List<Airport> airports = airportRepository.findAll();
+//            model.addAttribute("airports", airports);
+//            return "admin/addSchuedulingPage";
+//        }
+
+        System.out.print( "This is mukara  First to check  filled  information to search possible flight\n\n" +
+                schuedule.toString());
+
+        List<Schuedule> flights=  schueduleService.availableFlights(schuedule);
+
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("flights", flights);
+        mv.setViewName("customer/availableFlightList");
+        return  mv;
+//        schueduleService.SaveSchuedule(schuedule);
+//        return "redirect:/admin/schueduleList";
+    }
 
 }
