@@ -79,7 +79,6 @@ public class SchueduleController {
 //    }
     @GetMapping(value = "/admin/schueduleList")
     public ModelAndView getAll() {
-
         List<Schuedule> schuedules = schueduleService.searchAllSchuedule();
         return new ModelAndView("admin/schueduleList", "schuedules", schuedules);
     }

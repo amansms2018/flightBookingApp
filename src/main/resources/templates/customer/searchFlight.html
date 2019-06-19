@@ -17,7 +17,7 @@
                     <span>From</span>  <img src="images/departure_start_.png"width="40" height="40">
                     <select th:field="*{departureAirport}" required>
                         <option value="">Select Departure Airport</option>
-                        <option th:each="airport:${airports}" th:value="${airport.id}"
+                        <option th:each="airport:${airports}" th:value="${airport.airportCode}"
                                 th:text="${airport.airportName}"></option>
                     </select>
                 </div>
@@ -26,7 +26,7 @@
                     <span class="left">To</span> <img src="images/arrival.png"width="40" height="40">
                     <select th:field="*{arriavaleAirport}" required>
                         <option value="">Select  Destination Airport </option>
-                        <option th:each="airport:${airports}" th:value="${airport.id}"
+                        <option th:each="airport:${airports}" th:value="${airport.airportCode}"
                                 th:text="${airport.airportName}"></option>
                     </select>
                 </div>
