@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AboutUsController {
     @Autowired
 
-//    @GetMapping(value = "/c2")
-//    public  String displayCommonHomepage(){
-//        return "admin/index123";
-//    }
+    @GetMapping(value = "/about")
+    public  String displayCustomerHomepage(){
+        return "customer/index";
+    }
 //    @GetMapping(value = "/c")
 ////    public  String displayCustomerHomepage(){
 ////        return "customer/index101";

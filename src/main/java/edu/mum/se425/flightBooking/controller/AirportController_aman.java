@@ -30,7 +30,7 @@ public class AirportController_aman {
     @PostMapping(value="/saveAirport")
     public String saveRegistration(@Valid Airport airport, BindingResult result, ModelMap model, RedirectAttributes redirectAttributes) {
         airportService.save(airport);
-        return "redirect:/airport/list";
+        return "redirect:admin/airport/list";
     }
     @GetMapping(value = "/airport/list")
     public ModelAndView getAll() {
